@@ -1,5 +1,4 @@
 """
-Built by Maral Dicle Maral 18.11.2021
 
 Query Processing and Search. Works with: python3 query_process.py
 Please enter a query (You can use AND OR NOT operators). Enter E to exit.
@@ -11,7 +10,6 @@ and query_process() functions.
 
 import pickle
 import time
-start_time = time.time()
 
 """
 Conjunction function. Processes the conjunction (AND) operation for search words.
@@ -134,16 +132,21 @@ def main():
 
     while True:
         query = input("Please enter a query(''E'' for exit):")
-        print(query)
         if query == 'E':
             print('Thank you for using my search engine!')
             break
+        start_time = time.time()
         result = query_process(query, index)
+        end_time = time.time()
+        run_time = end_time - start_time
+        round(run_time, 3)
         if len(result) == 0:
             print(query + '  is not found.')
         else:
             print(query + ' is found at: ')
             print(result)
+        print("- Process finished in %.6f seconds -" % run_time)
+
 
 
 if __name__ == '__main__':

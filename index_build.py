@@ -117,5 +117,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print("- Index is created in %s seconds -" % (time.time() - start_time))
+    run_time = time.time() - start_time	
+    print("- Index is created in %.6f seconds -" % run_time)
 
