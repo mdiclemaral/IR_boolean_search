@@ -105,16 +105,16 @@ def query_process(query, index):
     if not len(query_op) == 0:
         for op in query_op:
             if op == 'AND':
-                result = conjunction(op_cach, word_list[word_count])
+                op_cach = conjunction(op_cach, word_list[word_count])
             elif op == 'OR':
-                result = disjunction(op_cach, word_list[word_count])
+                op_cach = disjunction(op_cach, word_list[word_count])
             else:
-                result = negation(op_cach, word_list[word_count])
+                op_cach = negation(op_cach, word_list[word_count])
             word_count += 1
     else:
-        result = word_list[0]
+        op_cach = word_list[0]
 
-    return result
+    return op_cach
 
 def main():
 
